@@ -484,8 +484,8 @@
     (after uploading jijaji.jpg to GitHub alongside this file)
   -->
   <div class="photo-ring">
-    <span class="emoji-avatar">👨‍🦱</span>
-    <!-- <img src="jijaji.jpg" alt="Jija Ji" /> -->
+    <!-- <!-- <span class="emoji-avatar">👨‍🦱</span> --> -->
+<img src="jijaji.jpg" alt="Jija Ji" />
   </div>
 
   <h1 class="main-title" id="mainTitle">Happy Birthday Jija Ji 🎉</h1>
@@ -1024,21 +1024,9 @@
      Plays a little "ta-da!" tone sequence
   ============================================================ */
   function playBirthdaySound() {
-    try {
-      const ac   = new (window.AudioContext || window.webkitAudioContext)();
-      const notes = [523, 659, 784, 1047]; // C5 E5 G5 C6
-      notes.forEach((freq, i) => {
-        const osc  = ac.createOscillator();
-        const gain = ac.createGain();
-        osc.connect(gain);
-        gain.connect(ac.destination);
-        osc.type      = 'sine';
-        osc.frequency.setValueAtTime(freq, ac.currentTime + i * 0.18);
-        gain.gain.setValueAtTime(0.3, ac.currentTime + i * 0.18);
-        gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + i * 0.18 + 0.35);
-        osc.start(ac.currentTime + i * 0.18);
-        osc.stop(ac.currentTime  + i * 0.18 + 0.35);
-      });
+  const audio = new Audio('birthday.mp3');
+  audio.play().catch(()=>{});
+});
     } catch (e) {
       // Sound not supported — silent fail is fine
     }
