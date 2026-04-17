@@ -484,8 +484,8 @@
     (after uploading jijaji.jpg to GitHub alongside this file)
   -->
   <div class="photo-ring">
-    <!-- <!-- <span class="emoji-avatar">👨‍🦱</span> --> -->
-<img src="jijaji.jpg" alt="Jija Ji" />
+    <span class="emoji-avatar">👨‍🦱</span>
+    <!-- <img src="jijaji.jpg" alt="Jija Ji" /> -->
   </div>
 
   <h1 class="main-title" id="mainTitle">Happy Birthday Jija Ji 🎉</h1>
@@ -1024,9 +1024,9 @@
      Plays a little "ta-da!" tone sequence
   ============================================================ */
   function playBirthdaySound() {
-  const audio = new Audio('birthday.mp3');
-  audio.play().catch(()=>{});
-});
+    try {
+     const audio = new Audio('birthday.mp3');
+       audio.play().catch(()=>{});
     } catch (e) {
       // Sound not supported — silent fail is fine
     }
